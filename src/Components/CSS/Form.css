@@ -1,0 +1,23 @@
+.form-select{
+  width: 250px;
+  display: block;
+  margin: 10px;
+}
+form input{
+  width: 250px;
+  display: block;
+  margin: 10px;
+}
+.form{
+  background-color: aquamarine;
+  border-radius: 10px;
+}
+form label{
+  font-weight: bold;
+  margin-top: 10px;
+}
+form button {
+  margin-bottom: 50px;
+  margin-top: 10px;
+  margin-left: 50px;
+}
