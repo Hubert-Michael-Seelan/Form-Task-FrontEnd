@@ -13,7 +13,7 @@ const FormUpdate = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:4000/getEmp/"+id)
+    axios.get("https://form-task-backend.onrender.com/getEmp/"+id)
     .then(result => {console.log(result)
             setFormData(result.data.value)
     })
@@ -21,7 +21,7 @@ const FormUpdate = () => {
   }, [])
   const handleUpdate = (e) => {
     e.preventDefault();
-    axios.put("http://localhost:4000/update/emp"+id, {formData})
+    axios.put("https://form-task-backend.onrender.com/update/emp"+id, {formData})
     .then(result => {
       console.log(result)
       // navigate("/table")

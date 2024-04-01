@@ -7,12 +7,12 @@ import axios from "axios";
 const TableComponent = () => {
   const [emp, setEmp] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:4000/allEmp")
+    axios.get("https://form-task-backend.onrender.com/allEmp")
     .then(result => setEmp(result.data))
     .catch(error=>console.log(error))
   }, [])
   const handleDelete = (id) =>{
-    axios.delete("/deleteEmp/"+id)
+    axios.delete("https://form-task-backend.onrender.com/deleteEmp/"+id)
     .then(res => console.log(res))
     .catch(error=>console.log(error))
   }

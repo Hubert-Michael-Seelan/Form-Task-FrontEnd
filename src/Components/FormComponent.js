@@ -14,7 +14,7 @@ const FormComponent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:4000/createEmp", {formData})
+    axios.post("https://form-task-backend.onrender.com/createEmp", {formData})
     .then(result => {
       console.log(result)
       // navigate("/table")
