@@ -75,7 +75,7 @@ const FormComponent = () => {
           required
         />
         <label>Reporting Person: </label>
-        <select className="form-select" aria-label="Default select example" name="rep">  
+        <select className="form-select" aria-label="Default select example" name="rep" onChange={handleChange}>  
           <option value="1">Reporting Person</option>
           <option value="2">Alex</option>
           <option value="3">Albert</option>
