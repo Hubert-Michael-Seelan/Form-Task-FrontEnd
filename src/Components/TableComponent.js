@@ -11,6 +11,11 @@ const TableComponent = () => {
     .then(result => setEmp(result.data))
     .catch(error=>console.log(error))
   }, [])
+  const handleDelete = (id) =>{
+    axios.delete("/deleteEmp/"+id)
+    .then(res => console.log(res))
+    .catch(error=>console.log(error))
+  }
   
   return (
     <table className="container">
@@ -46,7 +51,7 @@ const TableComponent = () => {
                 <Link to={`/update/${data._id}`} className="btn btn-success">
                   <span className="material-symbols-outlined">edit</span>
                 </Link>
-                <button className="btn btn-danger">
+                <button className="btn btn-danger" onClick={(e)=>handleDelete(data._id)}>
                   <span className="material-symbols-outlined">delete</span>
                 </button>
               </td>
