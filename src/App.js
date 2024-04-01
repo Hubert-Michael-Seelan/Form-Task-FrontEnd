@@ -19,7 +19,7 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<FormComponent />} />
-          <Route path="/update" element={<FormUpdate />} />
+          <Route path="/update/:id" element={<FormUpdate />} />
           <Route path="/table" element={<TableComponent />} />
         </Routes>
       </BrowserRouter>

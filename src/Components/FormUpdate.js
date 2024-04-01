@@ -1,25 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./CSS/Form.css";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const FormUpdate = ({ onSubmit }) => {
   const [formData, setFormData] = useState({});
+  const {id} = useParams()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(formData);
-    setFormData({});
-    console.log(formData)
-  };
+  useEffect(() => {
+    axios.get("http://localhost:4000/getEmp/"+id)
+    .then(result => setFormData(result.data.name))
+    .catch(error=>console.log(error))
+  }, [])
 
   return (
     <div>
       <h3 className="d-flex justify-content-center mt-3">Update Data</h3>
-      <form onSubmit={handleSubmit} className="form mt-2 container">
+      <form  className="form mt-2 container">
         <label>Full Name: </label>
         <input
           type="text"
@@ -108,7 +110,7 @@ const FormUpdate = ({ onSubmit }) => {
           onChange={handleChange}
           required
         />
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary">Update</button>
       </form>
     </div>
   );

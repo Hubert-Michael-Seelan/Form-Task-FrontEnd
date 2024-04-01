@@ -1,23 +1,17 @@
 // TableComponent.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CSS/Table.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const TableComponent = ({ data }) => {
-  const [emp, setEmp] = useState([
-    {
-      emp_id: "1",
-      name: "Hubert",
-      dob: "06-09-1999",
-      phone: 9488,
-      email: "hms@gmail.com",
-      department: "maths",
-      doj: "01-04-2024",
-      experience: 22,
-      salary: "23k",
-      linkedin: "@linkedin",
-    },
-  ]);
+const TableComponent = () => {
+  const [emp, setEmp] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:4000/allEmp")
+    .then(result => setEmp(result.data))
+    .catch(error=>console.log(error))
+  }, [])
+  
   return (
     <table className="container">
       <thead>
@@ -38,7 +32,7 @@ const TableComponent = ({ data }) => {
       </thead>
       <tbody>
         {emp.map((data) => {
-          return <tr>
+          return <tr key={data.emp_id}>
               <td>{data.emp_id}</td>
               <td>{data.name}</td>
               <td>{data.dob}</td>
@@ -49,10 +43,10 @@ const TableComponent = ({ data }) => {
               <td>{data.experience}</td>
               <td>{data.linkedin}</td>
               <td>
-                <Link to="/update">
+                <Link to={`/update/${data.emp_id}`} className="btn btn-success">
                   <span className="material-symbols-outlined">edit</span>
                 </Link>
-                <button>
+                <button className="btn btn-danger">
                   <span className="material-symbols-outlined">delete</span>
                 </button>
               </td>

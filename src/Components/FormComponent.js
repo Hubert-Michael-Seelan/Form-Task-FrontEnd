@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./CSS/Form.css";
-import axios from "axios"
+import axios from "axios";
+// import {useNavigate} from "react-router-dom"
 
 const FormComponent = () => {
   const [formData, setFormData] = useState({});
+  // const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,7 +15,10 @@ const FormComponent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post("http://localhost:4000/createEmp", {formData})
-    .then(result => console.log(result))
+    .then(result => {
+      console.log(result)
+      // navigate("/table")
+      })
     .catch(error => console.log(error))
   };
 
@@ -47,7 +52,7 @@ const FormComponent = () => {
         />
         <label>Email Id: </label>
         <input
-          type="text"
+          type="email"
           name="email"
           placeholder="Email"
           onChange={handleChange}
