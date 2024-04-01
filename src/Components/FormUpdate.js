@@ -3,7 +3,7 @@ import "./CSS/Form.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const FormUpdate = ({ onSubmit }) => {
+const FormUpdate = () => {
   const [formData, setFormData] = useState({});
   const {id} = useParams()
 
@@ -14,7 +14,9 @@ const FormUpdate = ({ onSubmit }) => {
 
   useEffect(() => {
     axios.get("http://localhost:4000/getEmp/"+id)
-    .then(result => setFormData(result.data.name))
+    .then(result => {console.log(result)
+            setFormData(result.data.value)
+    })
     .catch(error=>console.log(error))
   }, [])
 
@@ -72,10 +74,10 @@ const FormUpdate = ({ onSubmit }) => {
         />
         <label>Reporting Person: </label>
         <select className="form-select" aria-label="Default select example" name="rep">  
-          <option selected>Reporting Person</option>
-          <option value="1">Alex</option>
-          <option value="2">Albert</option>
-          <option value="3">Anish</option>
+          <option value="1">Reporting Person</option>
+          <option value="2">Alex</option>
+          <option value="3">Albert</option>
+          <option value="4">Anish</option>
         </select>
         <label>Experience (in months): </label>
         <input

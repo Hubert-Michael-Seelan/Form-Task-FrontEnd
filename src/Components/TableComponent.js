@@ -43,7 +43,7 @@ const TableComponent = () => {
               <td>{data.experience}</td>
               <td>{data.linkedin}</td>
               <td>
-                <Link to={`/update/${data.emp_id}`} className="btn btn-success">
+                <Link to={`/update/${data._id}`} className="btn btn-success">
                   <span className="material-symbols-outlined">edit</span>
                 </Link>
                 <button className="btn btn-danger">

@@ -76,10 +76,10 @@ const FormComponent = () => {
         />
         <label>Reporting Person: </label>
         <select className="form-select" aria-label="Default select example" name="rep">  
-          <option selected>Reporting Person</option>
-          <option value="1">Alex</option>
-          <option value="2">Albert</option>
-          <option value="3">Anish</option>
+          <option value="1">Reporting Person</option>
+          <option value="2">Alex</option>
+          <option value="3">Albert</option>
+          <option value="4">Anish</option>
         </select>
         <label>Experience (in months): </label>
         <input
