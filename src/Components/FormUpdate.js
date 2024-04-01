@@ -19,11 +19,20 @@ const FormUpdate = () => {
     })
     .catch(error=>console.log(error))
   }, [])
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    axios.put("http://localhost:4000/update/emp"+id, {formData})
+    .then(result => {
+      console.log(result)
+      // navigate("/table")
+      })
+    .catch(error => console.log(error))
+  };
 
   return (
     <div>
       <h3 className="d-flex justify-content-center mt-3">Update Data</h3>
-      <form  className="form mt-2 container">
+      <form onSubmit={handleUpdate} className="form mt-2 container">
         <label>Full Name: </label>
         <input
           type="text"
