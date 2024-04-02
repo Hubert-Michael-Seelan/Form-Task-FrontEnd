@@ -25,7 +25,7 @@ const FormComponent = () => {
   return (
     <div>
       <h3 className="d-flex justify-content-center mt-3">Form Data</h3>
-      <form onSubmit={handleSubmit} className="form mt-2 container">
+      <form onSubmit={handleSubmit} className="form mt-2 container d-flex justify-content-center flex-column">
         <label>Full Name: </label>
         <input
           type="text"
@@ -105,7 +105,7 @@ const FormComponent = () => {
           onChange={handleChange}
           required
         />
-        <label>Upload any Government Proof: </label>
+        {/* <label>Upload any Government Proof: </label>
         <input
           type="file"
           accept="image/*"
@@ -113,7 +113,7 @@ const FormComponent = () => {
           placeholder="Id Proof"
           onChange={handleChange}
           required
-        />
+        /> */}
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     </div>
